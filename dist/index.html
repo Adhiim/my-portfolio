@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<!--
+  =========================================================================
+  FILE: index.html
+  PEMILIK: Adhiim Ghaniiyu Ulul Hakiim
+  FUNGSI: Halaman utama portfolio (Single Page). Semua section ada di
+          SATU file ini (Home, About, Skills, Education, Experience,
+          Portfolio, Certificates, Contact, Footer), pengunjung pindah
+          section dengan scroll atau klik menu navbar.
+
+  CARA EDIT TEKS: Cari teks yang ingin diubah langsung di file ini
+  (Ctrl+F), ganti teksnya, simpan. Tidak perlu paham coding mendalam
+  untuk sekadar mengganti kata-kata.
+
+  CARA EDIT WARNA/STYLE: Buka style.css
+  CARA EDIT INTERAKSI/ANIMASI: Buka script.js
+  =========================================================================
+-->
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===================================================================
+       SEO META TAGS — membantu Google & media sosial memahami halaman ini
+       =================================================================== -->
+  <title>Adhiim Ghaniiyu Ulul Hakiim | Warehouse Operations &amp; Information Systems</title>
+  <meta name="description" content="Portfolio profesional Adhiim Ghaniiyu Ulul Hakiim — Lulusan Sistem Informasi dengan pengalaman 4+ tahun di bidang Warehouse Operations, Inventory Control, dan Administrasi Operasional.">
+  <meta name="keywords" content="warehouse, inventory control, sistem informasi, operator forklift, supply chain, portfolio, CV">
+  <meta name="author" content="Adhiim Ghaniiyu Ulul Hakiim">
+
+  <!-- Open Graph: tampilan saat link ini dibagikan ke WhatsApp/LinkedIn dll -->
+  <meta property="og:title" content="Adhiim Ghaniiyu Ulul Hakiim | Warehouse &amp; Information Systems">
+  <meta property="og:description" content="Lulusan Sistem Informasi dengan pengalaman di Warehouse Operations &amp; Inventory Control.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon sederhana berupa emoji kotak gudang, bisa diganti file .ico nanti -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+
+  <!-- ===================================================================
+       FONT & ICON
+       =================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Sora = font display untuk judul besar (karakter tegas, modern, geometris)
+       Inter = font body untuk paragraf (sangat mudah dibaca di layar)
+       JetBrains Mono = font untuk label kecil/data teknis (kesan presisi) -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS (Animate On Scroll) - library animasi reveal saat scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- CSS utama -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Skip link untuk aksesibilitas keyboard -->
+<a href="#main-content" class="skip-link">Lompat ke konten utama</a>
+
+<!-- =====================================================================
+     NAVBAR
+     ===================================================================== -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="#home" class="navbar__logo">ADHIIM GHANIIYU ULUL HAKIIM <span>.</span></a>
+
+    <ul class="navbar__menu" id="navbarMenu">
+      <li><a href="#home" class="navbar__link">Home</a></li>
+      <li><a href="#about" class="navbar__link">About</a></li>
+      <li><a href="#skills" class="navbar__link">Skills</a></li>
+      <li><a href="#education" class="navbar__link">Education</a></li>
+      <li><a href="#experience" class="navbar__link">Experience</a></li>
+      <li><a href="#portfolio" class="navbar__link">Portfolio</a></li>
+      <li><a href="#certificates" class="navbar__link">Certificates</a></li>
+      <li><a href="#contact" class="navbar__link">Contact</a></li>
+    </ul>
+
+    <a href="documents/cv-adhiim-ghaniiyu-ulul-hakiim.html" class="btn btn--primary btn--navbar-cv" download="CV-Adhiim-Ghaniiyu-Ulul-Hakiim.html">
+      <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+    </a>
+
+    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Buka menu navigasi" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- =====================================================================
+     SECTION: HOME (HERO)
+     ===================================================================== -->
+<section class="hero" id="home">
+
+  <!-- Dekorasi background: animasi penuh di belakang konten hero -->
+  <div class="hero__bg-decoration" aria-hidden="true">
+    <div class="hero__bg-aurora"></div>
+    <div class="hero__bg-grid"></div>
+    <div class="hero__bg-flow"></div>
+    <canvas id="particleCanvas" class="hero__bg-particles"></canvas>
+  </div>
+
+  <div class="hero__inner">
+
+    <!-- Foto profil dibuat stabil; animasi dipindahkan ke background -->
+    <div class="hero__photo-frame" data-aos="zoom-in" data-aos-duration="800">
+      <img src="images/profile.webp" alt="Foto profil Adhiim Ghaniiyu Ulul Hakiim" class="hero__photo">
+    </div>
+
+    <div class="hero__badge" data-aos="fade-up" data-aos-delay="100">
+      <span class="hero__badge-dot"></span>
+      AVAILABLE FOR HIRE
+    </div>
+
+    <h1 class="hero__name" data-aos="fade-up" data-aos-delay="150">
+      ADHIIM GHANIIYU<br>ULUL HAKIIM
+    </h1>
+
+    <!-- Typing effect: 3 role berganti-ganti, dikendalikan oleh script.js -->
+    <p class="hero__role">
+      <span id="typedRole" class="hero__role-text"></span><span class="hero__role-cursor">|</span>
+    </p>
+
+    <p class="hero__lokasi" data-aos="fade-up" data-aos-delay="200">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+      Tuban, East Java, Indonesia
+    </p>
+
+    <div class="hero__cta" data-aos="fade-up" data-aos-delay="250">
+      <a href="documents/cv-adhiim-ghaniiyu-ulul-hakiim.html" class="btn btn--primary" download="CV-Adhiim-Ghaniiyu-Ulul-Hakiim.html">
+        <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+      </a>
+      <a href="#contact" class="btn btn--outline">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact Me
+      </a>
+    </div>
+
+    <!-- Counter statistik -->
+    <div class="hero__stats" data-aos="fade-up" data-aos-delay="300">
+      <div class="hero__stat">
+        <div class="hero__stat-number" data-count="5">0</div>
+        <div class="hero__stat-label">Years Experience</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-number" data-count="4">0</div>
+        <div class="hero__stat-label">Companies</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-number" data-count="6">0</div>
+        <div class="hero__stat-label">Certificates</div>
+      </div>
+      <div class="hero__stat hero__stat--text">
+        <div class="hero__stat-number hero__stat-number--text">S1</div>
+        <div class="hero__stat-label">Information Systems</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: ABOUT
+     ===================================================================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Tentang Saya</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__photo-wrap" data-aos="fade-right">
+        <img src="images/profile.webp" alt="Adhiim Ghaniiyu Ulul Hakiim" class="about__photo">
+        <div class="about__photo-accent" aria-hidden="true"></div>
+      </div>
+
+      <div class="about__content" data-aos="fade-left">
+        <p class="about__desc">
+          I am an <strong>Information Systems graduate from Universitas Terbuka</strong> with
+          more than four years of experience in warehousing, inventory control, security,
+          material distribution, operational administration, and data management.
+        </p>
+        <p class="about__desc">
+          My combination of hands-on warehouse operations experience and an educational 
+          background in information systems enables me to understand workflows firsthand while 
+          maintaining a structured approach to accurate data management and administration.
+        </p>
+
+        <!-- Info singkat ala "kartu identitas profesional" -->
+        <div class="about__info-grid">
+          <div class="about__info-item">
+            <span class="about__info-label">Full Name </span>
+            <span class="about__info-value">Adhiim Ghaniiyu Ulul Hakiim</span>
+          </div>
+          <div class="about__info-item">
+            <span class="about__info-label">Place and Date of Birth</span>
+            <span class="about__info-value">Tuban, 03 July 1998</span>
+          </div>
+          <div class="about__info-item">
+            <span class="about__info-label">Education </span>
+            <span class="about__info-value">S1 Sistem Informasi</span>
+          </div>
+          <div class="about__info-item">
+            <span class="about__info-label">Status</span>
+            <span class="about__info-value">Available for Hire</span>
+          </div>
+        </div>
+
+        <a href="documents/cv-adhiim-ghaniiyu-ulul-hakiim.html" class="btn btn--primary" download="CV-Adhiim-Ghaniiyu-Ulul-Hakiim.html">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: SKILLS
+     ===================================================================== -->
+<section class="section section--alt" id="skills">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">ability</span>
+      <h2 class="section-title">Skills &amp; Expertise</h2>
+    </div>
+
+    <div class="skills__grid">
+
+      <!-- Kartu kategori 1: Warehouse -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-card__icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3 class="skill-card__title">Warehouse</h3>
+        <ul class="skill-card__list">
+          <li><i class="fa-solid fa-check"></i> Inventory Control</li>
+          <li><i class="fa-solid fa-check"></i> Stock Opname</li>
+          <li><i class="fa-solid fa-check"></i> Warehouse Administration</li>
+          <li><i class="fa-solid fa-check"></i> Material Distribution</li>
+          <li><i class="fa-solid fa-check"></i> Operator Forklift (K3 Kelas II)</li>
+        </ul>
+      </div>
+
+      <!-- Kartu kategori 2: Information Systems -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card__icon"><i class="fa-solid fa-database"></i></div>
+        <h3 class="skill-card__title">Information Systems</h3>
+        <ul class="skill-card__list">
+          <li><i class="fa-solid fa-check"></i> Database</li>
+          <li><i class="fa-solid fa-check"></i> SQL</li>
+          <li><i class="fa-solid fa-check"></i> System Analysis</li>
+          <li><i class="fa-solid fa-check"></i> Computer Networks</li>
+          <li><i class="fa-solid fa-check"></i> Information System Security</li>
+          <li><i class="fa-solid fa-check"></i> Python</li>
+        </ul>
+      </div>
+
+      <!-- Kartu kategori 3: Tools -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-card__icon"><i class="fa-solid fa-toolbox"></i></div>
+        <h3 class="skill-card__title">Tools</h3>
+        <ul class="skill-card__list">
+          <li><i class="fa-solid fa-check"></i> Microsoft Excel</li>
+          <li><i class="fa-solid fa-check"></i> Wireshark</li>
+          <li><i class="fa-solid fa-check"></i> Cisco Packet Tracer</li>
+          <li><i class="fa-solid fa-check"></i> Visual Studio Code</li>
+          <li><i class="fa-solid fa-check"></i> Canva</li>
+          <li><i class="fa-solid fa-check"></i> Power BI</li>
+          <li><i class="fa-solid fa-check"></i> MySQL</li>
+          <li><i class="fa-solid fa-check"></i> Tableau</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: EDUCATION
+     ===================================================================== -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">History</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__item" data-aos="fade-up">
+        <span class="timeline__dot timeline__dot--current" aria-hidden="true"></span>
+        <div class="timeline__card">
+          <span class="timeline__period">2022 &ndash; 2026</span>
+          <h3 class="timeline__title">Universitas Terbuka</h3>
+          <p class="timeline__subtitle"><strong>S1</strong> &mdash; Sistem Informasi</p>
+          <p class="timeline__desc">
+            Graduated with a GPA of 3.25/4.00. Completed core courses including Databases, Computer 
+            Networks, Systems Analysis &amp; Design, Network Security, Web-based Programming,
+            and Information Technology Governance. Final research focused on the implementation
+            of artificial intelligence in financial trading information systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: EXPERIENCE
+     ===================================================================== -->
+<section class="section section--alt" id="experience">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Career</span>
+      <h2 class="section-title">Work Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+      <!-- Paling baru: Secure Garuda Indonesia -->
+      <div class="timeline__item" data-aos="fade-right">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="timeline__card">
+          <span class="timeline__period">Jan 2024 &ndash; Nov 2024</span>
+          <h3 class="timeline__title">Security</h3>
+          <p class="timeline__subtitle">
+            <strong>PT Secure Garuda Indonesia</strong> &middot;
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> WTC Surabaya, East Java
+          </p>
+          <p class="timeline__desc">
+            Experienced in securing 16–20 operational points within a shopping center across 
+            a 3-shift rotation to maintain a safe and orderly environment. Proven ability to 
+            swiftly resolve visitor altercations, manage emergency medical evacuations, and 
+            collaborate effectively within a 10–11 personnel team while coordinating with supervisors 
+            and law enforcement in accordance with public security procedures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Astra Honda Motor (2 kontrak digabung jadi 1 entri) -->
+      <div class="timeline__item" data-aos="fade-left">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="timeline__card">
+          <span class="timeline__period">Sep 2019 &ndash; Mar 2023</span>
+          <h3 class="timeline__title">Warehouse Operator</h3>
+          <p class="timeline__subtitle">
+            <strong>PT Astra Honda Motor</strong> &middot;
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Bekasi Regency, West Java
+          </p>
+          <p class="timeline__desc">
+            Experienced in managing the distribution and inventory of thousands of spare parts 
+            (including small, electric, big, export, and plastic parts) at Plant 3 to support 3 
+            automotive production lines with a capacity of 1,000–1,200 units per shift. Proven track 
+            record in conducting periodic stock takes, mitigating supply chain bottlenecks due to 
+            production planning shifts, and coordinating with receiving teams for urgent material 
+            prioritization, while actively training new operators within a large-scale team of 80–100 
+            personnel per shift.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gada Pratama / Sigap Prima Astrea -->
+      <div class="timeline__item" data-aos="fade-right">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="timeline__card">
+          <span class="timeline__period">Feb 2019 &ndash; Aug 2019 </span>
+          <h3 class="timeline__title">Security</h3>
+          <p class="timeline__subtitle">
+            <strong>PT Sigap Prima Astrea</strong> &middot;
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Manggarai Station, South Jakarta
+          </p>
+          <p class="timeline__desc">
+            Experienced in securing KRL Commuter Line trips on the Jakarta – Bogor round-trip (PP) route,
+             managing approximately 3 round trips per operational shift to ensure passenger safety and 
+             order. Proven ability to swiftly handle reported harassment incidents, maintain onboard 
+             situational stability within a 4-personnel security team, and seamlessly coordinate with 
+             destination station guards adhering to public transportation safety protocols.
+          </p>
+        </div>
+      </div>
+       <!-- Serba Sambal  -->
+      <div class="timeline__item" data-aos="fade-right">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="timeline__card">
+          <span class="timeline__period">Jun 2016 &ndash; Des 2016 </span>
+          <h3 class="timeline__title">Resto Manager</h3>
+          <p class="timeline__subtitle">
+            <strong>Resto Serba Sambal</strong> &middot;
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lamongan, East Java
+          </p>
+          <p class="timeline__desc">
+            Experienced in managing daily operations, financial administration, and raw material 
+            inventory control for a restaurant with a capacity of more than 50 customers and a daily
+            turnover of &plusmn; Rp4,000,000. Proven analytical skills in stock evaluation, proactive supply chain
+            bottleneck mitigation, and team leadership for 8 personnel, including managing payroll and 
+            attendance records.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: PORTFOLIO
+ 
+     CARA KERJA POPUP DETAIL PROJECT:
+     Setiap <article class="portfolio__card"> punya atribut "data-links"
+     berisi teks JSON (daftar link). Saat tombol "Lihat Detail" diklik,
+     script.js MEMBACA atribut ini lalu menampilkannya di dalam popup
+     (modal) yang sama untuk semua kartu.
+ 
+     TIPE LINK yang didukung di dalam data-links (silakan campur bebas):
+       "youtube" -> untuk link video YouTube
+       "word"     -> untuk file karya ilmiah/dokumen Word (.docx)
+       "kaggle"   -> untuk notebook/project Kaggle
+       "github"   -> untuk repository GitHub
+       "link"     -> untuk link umum lainnya
+ 
+     CARA MENGGANTI ISI SETIAP KARTU:
+       1. Ganti data-title, data-category, data-desc sesuai project asli.
+       2. Ganti "url" di data-links dengan URL video YouTube / file Word /
+          Kaggle / GitHub milik Anda yang sebenarnya (saat ini masih berisi
+          URL CONTOH/PLACEHOLDER, WAJIB DIGANTI sebelum publish).
+       3. Boleh menghapus atau menambah baris di dalam data-links sesuai
+          jumlah video/link yang Anda punya untuk project tersebut.
+     ===================================================================== -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Work</span>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-subtitle">A collection of Information Systems projects, Kaggle data analytics, &amp; 
+        GitHub repositories.</p>
+    </div>
+ 
+    <div class="portfolio__grid">
+ 
+       <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="150"
+        data-category="Capstone Project"
+        data-title="Web-Based E-Commerce Application"
+        data-desc="Developed a web-based e-commerce application featuring user authentication, product management, shopping cart, and online transactions with a responsive interface."
+        data-links='[
+          {"type":"youtube","label":"Implementasi Aplikasi E-Commerce Berbasis Web - Part 1","url":"https://youtu.be/krpVeFKRdDk?si=qOXv_G94jQY4fKXL"},
+          {"type":"youtube","label":"Implementasi Aplikasi E-Commerce Berbasis Web - Part 2","url":"https://youtu.be/NinUvGAlax8?si=imB2xjbasCHXfmiX"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Capstone Project</span>
+          <h3 class="portfolio__card-title">Web-Based E-Commerce Application</h3>
+          <p class="portfolio__card-desc">Developed a web-based e-commerce application featuring user authentication, product management, shopping cart, and online transactions with a responsive interface.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="0"
+        data-category="Basis Data"
+        data-title="PhpMyAdmin"
+        data-desc="Designing and managing efficient databases to ensure data integrity, security, and high system performance."
+         data-links='[
+          {"type":"youtube","label":"Simulasi basic PhpMyAdmin - Bagian 1","url":"https://youtu.be/2_Ax_5f3MYM?si=zW-stopb-UkJcDSs"},
+          {"type":"youtube","label":"Basic PhpMyAdmin with SQL - Bagian 2","url":"https://youtu.be/f0psKw7HEeQ?si=VJUKFCDJICYhbBNb"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Basis Data</span>
+          <h3 class="portfolio__card-title">PhpMyAdmin</h3>
+          <p class="portfolio__card-desc">Designing and managing efficient databases to ensure data integrity, security, and high system performance.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="50"
+        data-category="Analis & Visualisasi Data"
+        data-title="RStudio"
+        data-desc="Transforming raw data into meaningful insights through data analysis, interactive visualization, and dashboards for better decision-making."
+        data-links='[
+          {"type":"youtube","label":"Demo Visualisasi Data","url":"https://youtu.be/MRszOSYKL9w?si=Y-kMc0gUEhGru9vM"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Analis & Visualisasi Data</span>
+          <h3 class="portfolio__card-title">RStudio<Data></Data></h3>
+          <p class="portfolio__card-desc">Transforming raw data into meaningful insights through data analysis, interactive visualization, and dashboards for better decision-making.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="100"
+        data-category="Network administration"
+        data-title="Cisco NAT Project"
+        data-desc="Konfigurasi Network Address Translation (NAT) menggunakan Cisco Packet Tracer."
+       data-links='[
+          {"type":"youtube","label":"Simulation of creating a simple network - Bagian 1","url":"https://youtu.be/LsBY0B0NaaA?si=JlOba3kCGPGP5OW7"},
+          {"type":"youtube","label":"verification and configuration of a simple network - Bagian 2","url":"https://youtu.be/kZrMOA0Tkp0?si=t6Yqc2gXaWHTSH4y"},
+          {"type":"youtube","label":"verification and configuration of a simple network - Bagian 3","url":"https://youtu.be/f0psKw7HEeQ?si=VJUKFCDJICYhbBNb"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Network administration</span>
+          <h3 class="portfolio__card-title">Cisco NAT Project</h3>
+          <p class="portfolio__card-desc">Konfigurasi Network Address Translation (NAT) with Cisco Packet Tracer.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="150"
+        data-category="Network Security"
+        data-title="Snort IDS"
+        data-desc="Implementasi Intrusion Detection System (IDS) menggunakan Snort untuk mendeteksi ancaman jaringan."
+        data-links='[
+          {"type":"youtube","label":"Implementasi wireshark analysis & Password tracker","url":"https://youtu.be/lN19gyXYDmM?si=ouQkE6fCIt4tf8Y0"},
+          {"type":"youtube","label":"Shifting practice using Wireshark","url":"https://youtu.be/lN19gyXYDmM?si=ouQkE6fCIt4tf8Y0"},
+          {"type":"youtube","label":"Implementation of an Intrusion Detection System (IDS) using Snort to detect network threats","url":"https://youtu.be/ahk7qva0t8o?si=554K-vQ33o4Yeg2T"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Network Security</span>
+          <h3 class="portfolio__card-title">Snort IDS</h3>
+          <p class="portfolio__card-desc">Implementation of an Intrusion Detection System (IDS) using Snort to detect network threats.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="200"
+        data-category="Java Programming"
+        data-title="Java-Based Simple Point of Sale (POS) System"
+        data-desc="ADeveloped a simple Java-based POS application to manage sales transactions, automate calculations, and improve data recording efficiency."
+        data-links='[
+          {"type":"youtube","label":"Java-Based Simple Point of Sale (POS) System - Part 1","url":"https://youtu.be/t4vv0w-DLQA?si=krKC0m4At4UDpj7M"},
+          {"type":"youtube","label":"Java-Based Simple Point of Sale (POS) System - Part 2","url":"https://youtu.be/FxAWgVoLw80?si=QT7QTe-o5OMXDuyX"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Java Programming</span>
+          <h3 class="portfolio__card-title">Java-Based Simple Point of Sale (POS) System</h3>
+          <p class="portfolio__card-desc">Developed a simple Java-based POS application to manage sales transactions, automate calculations, and improve data recording efficiency.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="250"
+        data-category="Mobile Application Development"
+        data-title="Basic Mobile Application"
+        data-desc="Perancangan dan implementasi basis data relasional menggunakan SQL."
+        data-links='[
+          {"type":"youtube","label":"Vue Part 1","url":"https://youtu.be/6Bfc7dcEczM?si=xGPILGcaEwggLqqF"},
+          {"type":"youtube","label":"An Ionic-based mobile application that displays real-time cryptocurrency prices and market information through API integration -Part 2","url":"https://youtu.be/xYM9rWfdBAw?si=OWq8uG1yI4fkZmQV"},
+          {"type":"youtube","label":"An Ionic-based mobile application that displays real-time cryptocurrency prices and market information through API integration -Part 3 - Part 3","url":"https://youtu.be/h95ZFZ2q8K0?si=NIiPOYTgxrwNcfxU"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-brands fa-youtube"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Mobile Application Development</span>
+          <h3 class="portfolio__card-title">Basic Mobile Application</h3>
+          <p class="portfolio__card-desc">Developed a basic mobile application to demonstrate fundamental mobile programming concepts, focusing on user interface and core application functionality.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <!-- =================================================================
+           KARTU BARU: KARYA ILMIAH (format Word)
+           Taruh file .docx Anda di dalam folder "documents/" (folder yang
+           sama tempat CV berada), lalu ganti "url" di bawah dengan nama
+           file Word Anda yang sebenarnya. Tipe "word" akan otomatis
+           menampilkan tombol "Download/Lihat Dokumen Word" di dalam popup.
+           ================================================================= -->
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="300"
+        data-category="Research Paper"
+        data-title="Trading AI: Implementation of Artificial Intelligence in Financial Trading Information Systems"
+        data-desc="A research paper exploring the implementation of Artificial Intelligence in financial trading information systems to enhance data analysis, process automation, and decision-making."
+        data-links='[
+          {"type":"word","label":"Download Karya Ilmiah (.docx)","url":"documents/Tugas Karya Ilmiah Trading AI.docx"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-solid fa-file-word"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Research Paper</span>
+          <h3 class="portfolio__card-title">Trading AI: Implementation of Artificial Intelligence in Financial Trading Information Systems</h3>
+          <p class="portfolio__card-desc">A research paper exploring the implementation of Artificial Intelligence in financial trading information systems to enhance data analysis, process automation, and decision-making.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+      <!-- =================================================================
+           KARTU BARU: KAGGLE DATA ANALYSIS
+           Ganti "url" dengan link notebook Kaggle Anda yang sebenarnya
+           (contoh format: https://www.kaggle.com/code/username/nama-notebook)
+           ================================================================= -->
+      <article class="portfolio__card"
+        data-aos="fade-up" data-aos-delay="350"
+        data-category="Data Analytics"
+        data-title="Kaggle Data Analysis"
+        data-desc="Latihan analisis data (data cleaning, EDA, visualisasi) menggunakan dataset dari Kaggle."
+        data-links='[
+          {"type":"kaggle","label":"View Notebook Kaggle","url":"https://www.kaggle.com/datasets/adhiimghaniiyu/roggi-wellbore"},
+          {"type":"kaggle","label":"View Notebook Kaggle","url":"https://www.kaggle.com/datasets/adhiimghaniiyu/operasi-penyelamatan-spaceship-titanic"},
+          {"type":"kaggle","label":"View Notebook Kaggle","url":"https://www.kaggle.com/datasets/adhiimghaniiyu/data-football"}
+        ]'>
+        <div class="portfolio__card-image-wrap">
+          <div class="portfolio__card-placeholder" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
+        <div class="portfolio__card-body">
+          <span class="portfolio__card-category">Data Analytics</span>
+          <h3 class="portfolio__card-title">Kaggle Data Analysis</h3>
+          <p class="portfolio__card-desc">Data analysis training (data cleaning, EDA, visualization) using a dataset from Kaggle.</p>
+          <button type="button" class="portfolio__card-link portfolio__card-trigger">
+            Lihat Detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+ 
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- =====================================================================
+     POPUP / MODAL DETAIL PROJECT
+     Satu modal ini dipakai ULANG oleh SEMUA kartu portfolio di atas.
+     Isinya (judul, kategori, deskripsi, daftar link) diisi otomatis oleh
+     script.js berdasarkan data-title / data-category / data-desc /
+     data-links milik kartu yang diklik. Anda TIDAK perlu mengedit
+     bagian ini secara manual.
+     ===================================================================== -->
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="project-modal__overlay" data-modal-close tabindex="-1"></div>
+  <div class="project-modal__content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="project-modal__close" id="modalCloseBtn" aria-label="Tutup popup">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <span class="project-modal__category" id="modalCategory"></span>
+    <h3 class="project-modal__title" id="modalTitle"></h3>
+    <p class="project-modal__desc" id="modalDesc"></p>
+    <div class="project-modal__links" id="modalLinks"></div>
+  </div>
+</div>
+ 
+
+
+<!-- =====================================================================
+     SECTION: CERTIFICATES
+     ===================================================================== -->
+<section class="section section--alt" id="certificates">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Legalitas</span>
+      <h2 class="section-title">Certificates</h2>
+    </div>
+
+    <div class="cert__grid">
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="0">
+        <div class="cert-card__icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 class="cert-card__title">Surat Keterangan Lulus</h3>
+        <p class="cert-card__issuer">Universitas Terbuka</p>
+        <p class="cert-card__date">S1 Sistem Informasi</p>
+        <a href="images/sertifikat/SKL UT.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i> Preview Certificate
+        </a>
+      </div>
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="80">
+        <div class="cert-card__icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+        <h3 class="cert-card__title">Lisensi K3 Operator Forklift Kelas II</h3>
+        <p class="cert-card__issuer">Kementerian Ketenagakerjaan RI</p>
+        <p class="cert-card__date">Valid until 13 January 2028</p>
+        <a href="images/sertifikat/sertifikat Forklift.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i> Preview Certificate
+        </a>
+      </div>
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="160">
+        <div class="cert-card__icon"><i class="fa-solid fa-industry"></i></div>
+        <h3 class="cert-card__title">SIO Forklift</h3>
+        <p class="cert-card__issuer">Kementerian Ketenagakerjaan RI</p>
+        <p class="cert-card__date">Operator Forklift Kelas II</p>
+        <a href="images/sertifikat/SIO Forklift.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i> Preview Certificate
+        </a>
+      </div>
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="240">
+        <div class="cert-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 class="cert-card__title">Gada Pratama</h3>
+        <p class="cert-card__issuer">Security Training Certification</p>
+        <p class="cert-card__date">Security Qualification</p>
+        <a href="images/sertifikat/Gada Pratama.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i> Preview Certificate
+        </a>
+      </div>
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="320">
+        <div class="cert-card__icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+        <h3 class="cert-card__title">SKD CPNS &mdash; Skor 342</h3>
+        <p class="cert-card__issuer">Badan Kepegawaian Negara (BKN)</p>
+        <p class="cert-card__date">15 November 2023</p>
+        <a href="images/sertifikat/SKD CPNS.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i> Preview Certificate
+        </a>
+      </div>
+
+      <div class="cert-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="cert-card__icon"><i class="fa-solid fa-id-card"></i></div>
+        <h3 class="cert-card__title">SIM A &amp; SIM C</h3>
+        <p class="cert-card__issuer">POLRI &mdash; Surat Izin Mengemudi</p>
+        <p class="cert-card__date">Aktif</p>
+        <div class="cert-card__link-group">
+          <a href="images/sertifikat/SIM A.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i> SIM A
+          </a>
+          <a href="images/sertifikat/SIM C.jpg" target="_blank" rel="noopener noreferrer" class="cert-card__link">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i> SIM C
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================================
+     SECTION: CONTACT
+     ===================================================================== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">CONTACT ME</span>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-subtitle">Open to job opportunities and professional collaborations.</p>
+    </div>
+
+    <div class="contact__grid">
+
+      <a href="https://wa.me/6281236732465?text=Halo%20Adhiim%2C%20saya%20tertarik%20dengan%20profil%20Anda!" target="_blank" rel="noopener noreferrer" class="contact-card contact-card--wa" data-aos="fade-up" data-aos-delay="0">
+        <div class="contact-card__icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="contact-card__label">WhatsApp</div>
+        <div class="contact-card__value">+62 812-3673-2465</div>
+      </a>
+
+      <a href="mailto:adhiimghaniiyu03@gmail.com" class="contact-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-card__icon"><i class="fa-solid fa-envelope"></i></div>
+        <div class="contact-card__label">Email</div>
+        <div class="contact-card__value">adhiimghaniiyu03@gmail.com</div>
+      </a>
+
+      <a href="https://linkedin.com/in/adhiim-ghaniiyu" target="_blank" rel="noopener noreferrer" class="contact-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-card__icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <div class="contact-card__label">LinkedIn</div>
+        <div class="contact-card__value">View Profile</div>
+      </a>
+
+      <a href="https://youtube.com/@adhiimghaniiyu" target="_blank" rel="noopener noreferrer" class="contact-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="contact-card__icon"><i class="fa-brands fa-youtube"></i></div>
+        <div class="contact-card__label">YouTube</div>
+        <div class="contact-card__value">View Channel</div>
+      </a>
+      <a href="https://github.com/Adhiim" target="_blank" rel="noopener noreferrer" class="contact-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="contact-card__icon"><i class="fa-brands fa-github"></i></div>
+        <div class="contact-card__label">Github</div>
+        <div class="contact-card__value">View Profile</div>
+      </a>
+      <a href="https://www.kaggle.com/adhiimghaniiyu" target="_blank" rel="noopener noreferrer" class="contact-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="contact-card__icon"><i class="fa-brands fa-kaggle"></i></div>
+        <div class="contact-card__label">Kaggle</div>
+        <div class="contact-card__value">View Profile</div>
+      </a>
+      
+    </div>
+
+    <!-- Tombol WhatsApp besar, sesuai spesifikasi -->
+    <div class="contact__cta-wrap" data-aos="fade-up">
+      <a href="https://wa.me/6281236732465?text=Halo%20Adhiim%2C%20saya%20tertarik%20dengan%20profil%20Anda!" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-large">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Contact Me on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__year">&copy; 2026</p>
+    <p class="footer__name">Adhiim Ghaniiyu Ulul Hakiim</p>
+    <p class="footer__tagline">Warehouse Operations &amp; Information Systems</p>
+  </div>
+</footer>
+
+<!-- Tombol Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- AOS library (animasi reveal saat scroll) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
